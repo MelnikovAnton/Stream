@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="InvDetails">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="SchemaInfo"/>
+                <xs:element maxOccurs="unbounded" ref="RMEPlatform"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SchemaInfo">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="RMEServer"/>
+                <xs:element ref="CreatedAt"/>
+                <xs:element ref="SchemaVersion"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="RMEServer" type="xs:NCName"/>
+    <xs:element name="CreatedAt" type="xs:string"/>
+    <xs:element name="SchemaVersion" type="xs:decimal"/>
+    <xs:element name="RMEPlatform">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Cisco_Chassis"/>
+                <xs:element ref="Cisco_NetworkElement"/>
+                <xs:element ref="Cisco_ComputerSystemPackage"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Cisco_Chassis">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="InstanceID"/>
+                <xs:element ref="Model"/>
+                <xs:element ref="HardwareVersion"/>
+                <xs:element ref="SerialNumber"/>
+                <xs:element ref="ChassisSystemType"/>
+                <xs:element ref="NumberOfSlots"/>
+                <xs:element ref="NoOfCommunicationConnectors"/>
+                <xs:element ref="Cisco_Card"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ChassisSystemType" type="xs:NCName"/>
+    <xs:element name="NumberOfSlots" type="xs:integer"/>
+    <xs:element name="Cisco_NetworkElement">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="InstanceID"/>
+                <xs:element ref="Description"/>
+                <xs:element ref="PrimaryOwnerName"/>
+                <xs:element ref="InstanceName"/>
+                <xs:element ref="PhysicalPosition"/>
+                <xs:element ref="SysObjectId"/>
+                <xs:element ref="SysUpTime"/>
+                <xs:element ref="OfficialHostName"/>
+                <xs:element ref="NumberOfPorts"/>
+                <xs:element maxOccurs="unbounded" ref="Cisco_LogicalModule"/>
+                <xs:element maxOccurs="unbounded" ref="Cisco_Port"/>
+                <xs:element maxOccurs="unbounded" ref="Cisco_MemoryPool"/>
+                <xs:element maxOccurs="unbounded" ref="Cisco_IfEntry"/>
+                <xs:element maxOccurs="unbounded" ref="Cisco_IPProtocolEndpoint"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PrimaryOwnerName">
+        <xs:complexType/>
+    </xs:element>
+    <xs:element name="PhysicalPosition">
+        <xs:complexType/>
+    </xs:element>
+    <xs:element name="SysObjectId" type="xs:NMTOKEN"/>
+    <xs:element name="SysUpTime" type="xs:string"/>
+    <xs:element name="OfficialHostName" type="xs:NMTOKEN"/>
+    <xs:element name="Cisco_LogicalModule">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="InstanceID"/>
+                <xs:element ref="ModuleNumber"/>
+                <xs:element ref="ModuleType"/>
+                <xs:element ref="InstanceName"/>
+                <xs:element minOccurs="0" ref="EnabledStatus"/>
+                <xs:element ref="NumberOfPorts"/>
+                <xs:element maxOccurs="unbounded" ref="Cisco_Port"/>
+                <xs:element minOccurs="0" ref="Cisco_OSElement"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ModuleNumber" type="xs:integer"/>
+    <xs:element name="ModuleType" type="xs:NCName"/>
+    <xs:element name="EnabledStatus" type="xs:NCName"/>
+    <xs:element name="Cisco_OSElement">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="InstanceName"/>
+                <xs:element ref="OSFamily"/>
+                <xs:element ref="Version"/>
+                <xs:element ref="Description"/>
+                <xs:element ref="AdditionalInformation"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="OSFamily" type="xs:NCName"/>
+    <xs:element name="Version" type="xs:string"/>
+    <xs:element name="Cisco_MemoryPool">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="InstanceName"/>
+                <xs:element ref="PoolType"/>
+                <xs:element ref="AlternatePoolType"/>
+                <xs:element ref="IsValid"/>
+                <xs:element ref="Allocated"/>
+                <xs:element ref="Free"/>
+                <xs:element ref="LargestFree"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PoolType" type="xs:integer"/>
+    <xs:element name="AlternatePoolType" type="xs:integer"/>
+    <xs:element name="IsValid" type="xs:boolean"/>
+    <xs:element name="Allocated" type="xs:integer"/>
+    <xs:element name="Free" type="xs:integer"/>
+    <xs:element name="LargestFree" type="xs:integer"/>
+    <xs:element name="Cisco_IfEntry">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="InstanceID"/>
+                <xs:element ref="InstanceName"/>
+                <xs:element ref="ProtocolType"/>
+                <xs:element ref="Speed"/>
+                <xs:element ref="RequestedStatus"/>
+                <xs:element ref="OperationalStatus"/>
+                <xs:element ref="Description"/>
+                <xs:element ref="PhysicalAddress"/>
+                <xs:element minOccurs="0" ref="NetworkAddress"/>
+                <xs:element ref="AdditionalInformation"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ProtocolType" type="xs:NCName"/>
+    <xs:element name="Speed" type="xs:integer"/>
+    <xs:element name="RequestedStatus" type="xs:NCName"/>
+    <xs:element name="PhysicalAddress" type="xs:string"/>
+    <xs:element name="NetworkAddress" type="xs:NMTOKEN"/>
+    <xs:element name="Cisco_IPProtocolEndpoint">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Address"/>
+                <xs:element ref="SubnetMask"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Address" type="xs:NMTOKEN"/>
+    <xs:element name="SubnetMask" type="xs:NMTOKEN"/>
+    <xs:element name="Cisco_ComputerSystemPackage">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Antecedent"/>
+                <xs:element ref="Dependent"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Antecedent" type="xs:integer"/>
+    <xs:element name="Dependent" type="xs:integer"/>
+    <xs:element name="InstanceID" type="xs:integer"/>
+    <xs:element name="Model" type="xs:string"/>
+    <xs:element name="HardwareVersion" type="xs:NCName"/>
+    <xs:element name="SerialNumber" type="xs:NCName"/>
+    <xs:element name="NoOfCommunicationConnectors" type="xs:integer"/>
+    <xs:element name="Cisco_Card">
+        <xs:complexType>
+            <xs:choice>
+                <xs:choice maxOccurs="unbounded">
+                    <xs:element ref="Cisco_Card"/>
+                    <xs:element ref="Description"/>
+                    <xs:element ref="HardwareVersion"/>
+                    <xs:element ref="InstanceID"/>
+                    <xs:element ref="Model"/>
+                    <xs:element ref="NoOfCommunicationConnectors"/>
+                    <xs:element ref="OperationalStatus"/>
+                    <xs:element ref="SerialNumber"/>
+                    <xs:element ref="CardType"/>
+                    <xs:element ref="Cisco_CommunicationConnector"/>
+                    <xs:element ref="Cisco_FlashDevice"/>
+                    <xs:element ref="Cisco_PhysicalMemory"/>
+                    <xs:element ref="FWManufacturer"/>
+                    <xs:element ref="LocationWithinContainer"/>
+                    <xs:element ref="Manufacturer"/>
+                    <xs:element ref="SlotNumber"/>
+                    <xs:element ref="SoftwareIdentity"/>
+                </xs:choice>
+                <xs:element maxOccurs="unbounded" ref="AdditionalInformation"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CardType" type="xs:NCName"/>
+    <xs:element name="Cisco_CommunicationConnector">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="InstanceID"/>
+                <xs:element ref="ConnectorType"/>
+                <xs:element ref="Description"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ConnectorType" type="xs:NCName"/>
+    <xs:element name="Cisco_FlashDevice">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="InstanceID"/>
+                <xs:element ref="InstanceName"/>
+                <xs:element ref="Size"/>
+                <xs:element ref="NumberOfPartitions"/>
+                <xs:element ref="ChipCount"/>
+                <xs:element ref="Description"/>
+                <xs:element ref="Removable"/>
+                <xs:element ref="Cisco_FlashPartition"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Size" type="xs:integer"/>
+    <xs:element name="NumberOfPartitions" type="xs:integer"/>
+    <xs:element name="ChipCount" type="xs:integer"/>
+    <xs:element name="Removable" type="xs:boolean"/>
+    <xs:element name="Cisco_FlashPartition">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="InstanceID"/>
+                <xs:element ref="InstanceName"/>
+                <xs:element ref="Upgrade"/>
+                <xs:element ref="NeedsErasure"/>
+                <xs:element ref="PartitionStatus"/>
+                <xs:element ref="FileSystemSize"/>
+                <xs:element ref="AvailableSpace"/>
+                <xs:element ref="FileCount"/>
+                <xs:element maxOccurs="unbounded" ref="Cisco_FlashFile"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Upgrade" type="xs:NCName"/>
+    <xs:element name="NeedsErasure" type="xs:boolean"/>
+    <xs:element name="PartitionStatus" type="xs:NCName"/>
+    <xs:element name="FileSystemSize" type="xs:integer"/>
+    <xs:element name="AvailableSpace" type="xs:integer"/>
+    <xs:element name="FileCount" type="xs:integer"/>
+    <xs:element name="Cisco_FlashFile">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="InstanceID"/>
+                <xs:element ref="FileSize"/>
+                <xs:element ref="FileStatus"/>
+                <xs:element ref="Checksum"/>
+                <xs:element ref="InstanceName"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="FileSize" type="xs:integer"/>
+    <xs:element name="FileStatus" type="xs:NCName"/>
+    <xs:element name="Checksum" type="xs:NMTOKEN"/>
+    <xs:element name="Cisco_PhysicalMemory">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="MemoryType"/>
+                <xs:element ref="Capacity"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="MemoryType" type="xs:NCName"/>
+    <xs:element name="Capacity" type="xs:integer"/>
+    <xs:element name="FWManufacturer" type="xs:NCName"/>
+    <xs:element name="LocationWithinContainer" type="xs:integer"/>
+    <xs:element name="Manufacturer" type="xs:NCName"/>
+    <xs:element name="SlotNumber" type="xs:integer"/>
+    <xs:element name="SoftwareIdentity">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Classification"/>
+                <xs:element ref="VersionString"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Classification" type="xs:NCName"/>
+    <xs:element name="VersionString" type="xs:string"/>
+    <xs:element name="Description" type="xs:string"/>
+    <xs:element name="InstanceName" type="xs:anyURI"/>
+    <xs:element name="NumberOfPorts" type="xs:integer"/>
+    <xs:element name="Cisco_Port">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="PortNumber"/>
+                <xs:element ref="PortType"/>
+                <xs:element ref="InstanceName"/>
+                <xs:element ref="IfInstanceID"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PortNumber" type="xs:integer"/>
+    <xs:element name="PortType" type="xs:NCName"/>
+    <xs:element name="IfInstanceID" type="xs:integer"/>
+    <xs:element name="AdditionalInformation">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="AD"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="AD">
+        <xs:complexType>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+            <xs:attribute name="value" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="OperationalStatus" type="xs:NCName"/>
+</xs:schema>
