@@ -45,16 +45,12 @@ public class MyTest {
 
     @Benchmark
     public void readCisco() throws JAXBException, IOException {
-
             Main.doXMLParse(IN_FILE_CISCO_XML,OUT_FILE_CISCO_CSV);
-
     }
 
     @Benchmark
     public void readBulat() throws IOException {
-
         Main.doLinesParse(IN_FILE_BULAT_XML,OUT_FILE_BULAT_CSV);
-
     }
 
 }

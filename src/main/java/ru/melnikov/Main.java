@@ -27,7 +27,6 @@ public class Main {
             e.printStackTrace();
         }
 
-
         try {
           doLinesParse(IN_FILE_BULAT_XML,OUT_FILE_BULAT_CSV);
         } catch (IOException e) {
@@ -58,9 +57,7 @@ public class Main {
     }
 
     public static void doLinesParse(String in_File,String out_File) throws IOException {
-
         BufferedReader br = new BufferedReader(new FileReader(in_File));
-
         try (PrintWriter pw = new PrintWriter(Files.newBufferedWriter(
                 Paths.get(out_File)))) {
             br.lines()
