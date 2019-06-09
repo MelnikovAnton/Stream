@@ -12,11 +12,11 @@ import java.nio.file.Paths;
 
 public class Main {
 
-    private static final String IN_FILE_CISCO_XML="import/cisco.xml";
-    private static final String OUT_FILE_CISCO_CSV="export/cisco.csv";
+    private static final String IN_FILE_CISCO_XML = "import/cisco.xml";
+    private static final String OUT_FILE_CISCO_CSV = "export/cisco.csv";
 
-    private static final String IN_FILE_BULAT_XML="import/eSoght.csv";
-    private static final String OUT_FILE_BULAT_CSV="export/bulat.csv";
+    private static final String IN_FILE_BULAT_XML = "import/eSoght.csv";
+    private static final String OUT_FILE_BULAT_CSV = "export/bulat.csv";
 
 
     public static void main(String[] args) {
@@ -24,20 +24,21 @@ public class Main {
 
 
         try {
-           doXMLParse(IN_FILE_CISCO_XML,OUT_FILE_CISCO_CSV);
+            doXMLParse(IN_FILE_CISCO_XML, OUT_FILE_CISCO_CSV);
         } catch (JAXBException | IOException e) {
             e.printStackTrace();
         }
 
+        System.out.println("1234");
         try {
-          doLinesParse(IN_FILE_BULAT_XML,OUT_FILE_BULAT_CSV);
+            doLinesParse(IN_FILE_BULAT_XML, OUT_FILE_BULAT_CSV);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
 
-    public static void doXMLParse(String uri,String out_File) throws JAXBException,IOException {
+    public static void doXMLParse(String uri, String out_File) throws JAXBException, IOException {
 
         JAXBContext context = JAXBContext.newInstance(InvDetails.class);
 
@@ -58,7 +59,7 @@ public class Main {
 
     }
 
-    public static void doLinesParse(String in_File,String out_File) throws IOException {
+    public static void doLinesParse(String in_File, String out_File) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(in_File));
         try (PrintWriter pw = new PrintWriter(Files.newBufferedWriter(
                 Paths.get(out_File)))) {
