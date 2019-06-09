@@ -29,7 +29,7 @@ public class Main {
             e.printStackTrace();
         }
 
-        System.out.println("1234");
+        System.out.println("12344444");
         try {
             doLinesParse(IN_FILE_BULAT_XML, OUT_FILE_BULAT_CSV);
         } catch (IOException e) {
